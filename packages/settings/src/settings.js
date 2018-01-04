@@ -200,4 +200,17 @@ export default {
      * @default true
      */
     CREATE_IMAGE_BITMAP: true,
+
+    /**
+     * Conversion contanst between degrees and radians.
+     * Degrees are used for Transform and DisplayObject rotation.
+     * Please set it before creation of instances of those classes.
+     *
+     * @static
+     * @constant
+     * @memberof PIXI
+     * @type {number}
+     * @default 180.0 / Math.PI
+     */
+    DEGREES_CONVERSION: 180.0 / Math.PI,
 };

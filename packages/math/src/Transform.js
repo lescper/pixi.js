@@ -60,14 +60,23 @@ export default class Transform
 
         this._cx = 1; // cos rotation + skewY;
         this._sx = 0; // sin rotation + skewY;
-        this._cy = 0; // cos rotation + Math.PI/2 - skewX;
-        this._sy = 1; // sin rotation + Math.PI/2 - skewX;
+        this._cy = 0; // cos rotation + 180 - skewX;
+        this._sy = 1; // sin rotation + 180 - skewX;
 
         this._localID = 0;
         this._currentLocalID = 0;
 
         this._worldID = 0;
         this._parentID = 0;
+
+        /**
+         * Multiplier for conversion stored rotation into radians.
+         * Set it to 1 to emulate pixi-v4
+         *
+         * @member {number}
+         * @default Math.PI / 180
+         */
+        this.deg2rad = Math.PI / 180;
     }
 
     /**
@@ -87,10 +96,12 @@ export default class Transform
      */
     updateSkew()
     {
-        this._cx = Math.cos(this._rotation + this.skew._y);
-        this._sx = Math.sin(this._rotation + this.skew._y);
-        this._cy = -Math.sin(this._rotation - this.skew._x); // cos, added PI/2
-        this._sy = Math.cos(this._rotation - this.skew._x); // sin, added PI/2
+        const deg2rad = this.deg2rad;
+
+        this._cx = Math.cos((this._rotation + this.skew._y) * deg2rad);
+        this._sx = Math.sin((this._rotation + this.skew._y) * deg2rad);
+        this._cy = -Math.sin((this._rotation - this.skew._x) * deg2rad); // cos, added PI/2
+        this._sy = Math.cos((this._rotation - this.skew._x) * deg2rad); // sin, added PI/2
 
         this._localID++;
     }
