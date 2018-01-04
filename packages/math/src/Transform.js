@@ -1,5 +1,7 @@
 import ObservablePoint from './ObservablePoint';
 import Matrix from './Matrix';
+import { DEG_TO_RAD } from './const';
+
 
 /**
  * Transform that takes care about its versions
@@ -95,7 +97,7 @@ export default class Transform
      */
     updateSkew()
     {
-        const deg2rad = this.useRadians ? 1.0 : (Math.PI / 180.0);
+        const deg2rad = this.useRadians ? 1.0 : DEG_TO_RAD;
 
         this._cx = Math.cos((this._rotation + this.skew._y) * deg2rad);
         this._sx = Math.sin((this._rotation + this.skew._y) * deg2rad);
