@@ -2,7 +2,6 @@ import ObservablePoint from './ObservablePoint';
 import Matrix from './Matrix';
 import { DEG_TO_RAD } from './const';
 
-
 /**
  * Transform that takes care about its versions
  *

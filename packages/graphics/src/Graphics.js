@@ -1,7 +1,7 @@
 import { Container, Bounds } from '@pixi/display';
-import { BLEND_MODES, DEG_TO_RAD } from '@pixi/constants';
+import { BLEND_MODES } from '@pixi/constants';
 import { Texture } from '@pixi/core';
-import { Point, Rectangle, RoundedRectangle, Ellipse, Polygon, Circle, SHAPES } from '@pixi/math';
+import { Point, Rectangle, RoundedRectangle, Ellipse, Polygon, Circle, SHAPES, DEG_TO_RAD } from '@pixi/math';
 import { hex2rgb, rgb2hex } from '@pixi/utils';
 import bezierCurveTo from './utils/bezierCurveTo';
 import { Sprite } from '@pixi/sprite';
