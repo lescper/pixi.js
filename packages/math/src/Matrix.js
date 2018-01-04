@@ -361,7 +361,7 @@ export default class Matrix
         const skewX = -Math.atan2(-c, d);
         const skewY = Math.atan2(b, a);
 
-        const rad2deg = 1.0 / transform.deg2rad;
+        const rad2deg = transform.useRadians ? 1.0 : (180.0 / Math.PI);
         const delta = Math.abs(skewX + skewY);
 
         if (delta < 0.00001)
