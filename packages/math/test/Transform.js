@@ -70,8 +70,8 @@ describe('PIXI.Transform', function ()
             const parent = new Transform();
             const otherTransform = new Transform();
 
-            transform.deg2rad = 1;
-            otherTransform.deg2rad = 1;
+            transform.useRadians = true;
+            otherTransform.useRadians = true;
 
             transform.position.set(387.8, 313.95);
             transform.scale.set(0.572, 4.101);

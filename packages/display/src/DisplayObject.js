@@ -32,7 +32,7 @@ export default class DisplayObject extends EventEmitter
          */
         this.transform = new Transform();
 
-        this.transform.deg2rad = settings.DEGREES_CONVERSION;
+        this.transform.useRadians = settings.USE_RADIANS;
 
         /**
          * The opacity of the object.

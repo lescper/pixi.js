@@ -31,7 +31,7 @@ export default class TilingSprite extends Sprite
          */
         this.tileTransform = new Transform();
 
-        this.tileTransform.deg2rad = settings.deg2rad;
+        this.transform.useRadians = settings.USE_RADIANS;
 
         // /// private
 

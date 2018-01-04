@@ -202,15 +202,17 @@ export default {
     CREATE_IMAGE_BITMAP: true,
 
     /**
-     * Conversion contanst between degrees and radians.
-     * Degrees are used for Transform and DisplayObject rotation.
+     * Since v5 pixi uses degrees.
+     *
+     * This legacy option allows to use radians to store rotation in Transform.
+     * Also affects TilingSprite and Graphics.
      * Please set it before creation of instances of those classes.
      *
      * @static
      * @constant
      * @memberof PIXI
-     * @type {number}
-     * @default Math.PI / 180.0
+     * @type {boolean}
+     * @default false
      */
-    DEGREES_CONVERSION: Math.PI / 180.0,
+    USE_RADIANS: false,
 };

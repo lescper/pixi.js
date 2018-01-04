@@ -70,13 +70,12 @@ export default class Transform
         this._parentID = 0;
 
         /**
-         * Multiplier for conversion stored rotation into radians.
-         * Set it to 1 to emulate pixi-v4
+         * Store radians in rotation
          *
-         * @member {number}
-         * @default Math.PI / 180
+         * @member {boolean}
+         * @default false
          */
-        this.deg2rad = Math.PI / 180;
+        this.useRadians = false;
     }
 
     /**
@@ -96,7 +95,7 @@ export default class Transform
      */
     updateSkew()
     {
-        const deg2rad = this.deg2rad;
+        const deg2rad = this.useRadians ? 1.0 : (Math.PI / 180.0);
 
         this._cx = Math.cos((this._rotation + this.skew._y) * deg2rad);
         this._sx = Math.sin((this._rotation + this.skew._y) * deg2rad);
