@@ -210,7 +210,7 @@ export default {
      * @constant
      * @memberof PIXI
      * @type {number}
-     * @default 180.0 / Math.PI
+     * @default Math.PI / 180.0
      */
-    DEGREES_CONVERSION: 180.0 / Math.PI,
+    DEGREES_CONVERSION: Math.PI / 180.0,
 };
