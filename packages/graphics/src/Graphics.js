@@ -1,5 +1,5 @@
 import { Container, Bounds } from '@pixi/display';
-import { BLEND_MODES } from '@pixi/constants';
+import { BLEND_MODES, DEG_TO_RAD } from '@pixi/constants';
 import { Texture } from '@pixi/core';
 import { Point, Rectangle, RoundedRectangle, Ellipse, Polygon, Circle, SHAPES } from '@pixi/math';
 import { hex2rgb, rgb2hex } from '@pixi/utils';
@@ -459,9 +459,9 @@ export default class Graphics extends Container
      * @param {number} cx - The x-coordinate of the center of the circle
      * @param {number} cy - The y-coordinate of the center of the circle
      * @param {number} radius - The radius of the circle
-     * @param {number} startAngle - The starting angle, in radians (0 is at the 3 o'clock position
+     * @param {number} startAngle - The starting angle, in degrees (0 is at the 3 o'clock position
      *  of the arc's circle)
-     * @param {number} endAngle - The ending angle, in radians
+     * @param {number} endAngle - The ending angle, in degrees
      * @param {boolean} [anticlockwise=false] - Specifies whether the drawing should be
      *  counter-clockwise or clockwise. False is default, and indicates clockwise, while true
      *  indicates counter-clockwise.
@@ -472,6 +472,12 @@ export default class Graphics extends Container
         if (startAngle === endAngle)
         {
             return this;
+        }
+
+        if (!this.transform.useRadians)
+        {
+            startAngle *= DEG_TO_RAD;
+            endAngle *= DEG_TO_RAD;
         }
 
         if (!anticlockwise && endAngle <= startAngle)
